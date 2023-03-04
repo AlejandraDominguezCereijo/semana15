@@ -7,7 +7,7 @@ public class Main {
         String nombreLiga = "";
         liga_futbol _liga_futbol=new liga_futbol();
         Jornada _jornada=new Jornada();
-
+        boolean crearLiga=false;
 
 
         int salir = 1;
@@ -18,13 +18,13 @@ public class Main {
                 case 1:
                     System.out.println("¿Como se va a llamar tu liga?");
                     nombreLiga = rellenar.nextLine();
-
                     _liga_futbol.añadir_liga();
                     System.out.println("La primera jornada sera: ");
                     _jornada.primera_jornada(_liga_futbol.añadir_liga());//al pasar por parametros _liga_futbol.añadir_liga() hacemos que nos muestre los datos que tenemos en la liga que generamos previamente
+                    crearLiga=true;
                     break;
                 case 2:
-                    if (nombreLiga.contains("a")) {//modificar esta condicion if, esta puesto asi para comprobar que funcionaba el resto
+                    if (crearLiga==true) {
                         int pausarLiga = 1;
                         do {
                             System.out.println("¿Que consulta quieres realizar? \n1 Siguiente jornada \n2 Consultar tabla \n3 Pausar liga");
@@ -47,7 +47,7 @@ public class Main {
                     }
                     break;
                 case 3:
-                    if (nombreLiga.contains("a")) {
+                    if (crearLiga==true) {
                         System.out.println("¿Estas seguro de que quieres eliminar tu liga? \n1 Si \n2 No");
                         int eliminarLiga = cubrir.nextInt();
                         if (eliminarLiga==1){
